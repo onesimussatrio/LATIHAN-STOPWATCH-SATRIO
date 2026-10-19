@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Second Stopwatch</title>
+</head>
+<body>
+
+    <h3 id="waktu">0</h3>
+
+    <button onclick="startStopwatch()">Start</button>
+    <button onclick="stopStopwatch()">Stop</button>
+    <button onclick="resetStopwatch()">Reset</button>
+
+    <script>
+        let detik = 0;
+        let timer = null;
+
+        function startStopwatch() {
+            if (timer === null) {
+                timer = setInterval(function() {
+                    detik++;
+                    document.getElementById("waktu").textContent = detik;
+                }, 1000);
+            }
+        }
+
+        function stopStopwatch() {
+            clearInterval(timer);
+            timer = null;
+        }
+
+        function resetStopwatch() {
+            clearInterval(timer);
+            timer = null;
+            detik = 0;
+            document.getElementById("waktu").textContent = detik;
+        }
+    </script>
+
+</body>
+</html>
